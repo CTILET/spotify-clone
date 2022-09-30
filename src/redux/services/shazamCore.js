@@ -1,5 +1,5 @@
 import { fromJSON } from "postcss"
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
 export const shazamCoreApi = createApi({
   reducerPath: "shazamCoreApi",
@@ -10,15 +10,12 @@ export const shazamCoreApi = createApi({
         "X-rapidAPI-key",
         "6482d5961dmsh99d77743767b247p1cc87fjsn469b6d01470b"
       )
-
       return headers
     },
   }),
   endpoints: (builder) => ({
-    getTopCharts: builder.query({ query: "/charts/world" }),
+    getTopCharts: builder.query({ query: () => "/charts/world" }),
   }),
 })
 
-export const {
-   useGetTopChartsQuery,
-} = shazamCoreApi;
+export const { useGetTopChartsQuery } = shazamCoreApi;
